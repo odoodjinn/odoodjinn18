@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_attendance_daily_wizard_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.daily.wizard.view.form</field>
+        <field name="model">hr.attendance.daily.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="print_by" widget="radio" string="Print By"/>
+                    <field name="start_date" invisible="print_by != 'custom'"/>
+                    <field name="end_date" invisible="print_by != 'custom'"/>
+                </group>
+                <footer>
+                    <button type="object" name="action_print_report" string="Print PDF" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="attendance_daily_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Attendance Daily Report</field>
+        <field name="res_model">hr.attendance.daily.wizard</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_attendance_daily_wizard_view_form"/>
+    </record>
+
+    <menuitem id="attendance_report" name="Attendance Report"
+              action="attendance_daily_report_wizard_action"
+              parent="hr_attendance.menu_hr_attendance_root"
+              sequence="20"/>
+</odoo>

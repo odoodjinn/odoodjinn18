@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="property_details_form_view" model="ir.ui.view">
+        <field name="name">property.details.form.inherit</field>
+        <field name="model">property.details</field>
+        <field name="inherit_id" ref="property_management.properties_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='facility_ids']" position="after">
+            <field name="range_slider" widget="slider"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

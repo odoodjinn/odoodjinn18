@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="range_slider_widget.SliderWidgetTemplate">
+        <div>
+            <t t-if="props.readonly == false">
+            <input type="range" min="0" max="100"
+                   t-ref="input_slider"
+                   t-att-value="state.value"
+                   t-on-change="onSliderChange"/>
+            </t>
+            <span t-esc="state.value"/>
+        </div>
+    </t>
+</templates>
