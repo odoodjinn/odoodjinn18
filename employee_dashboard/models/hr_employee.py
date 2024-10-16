@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from datetime import date
 
 from odoo import api, fields, models
-from odoo.tools.safe_eval import dateutil
 
 
-class CrmLead(models.Model):
+class HrEmployee(models.Model):
     _inherit = 'hr.employee'
+
+    experience = fields.Integer(string='Experience', compute='_compute_experience')
 
     @api.model
     def get_tiles_data(self):
@@ -22,6 +22,7 @@ class CrmLead(models.Model):
         project = employee_project.filtered(lambda x: x.user_id == user_id)
         today = fields.Datetime.today()
         experience = (today-employee_self.create_date).days/365
+        print(employee_self.create_date,'//selfprint')
         employee_info = {
             'id': employee_self.id,
             'name': employee_self.name,
@@ -38,3 +39,7 @@ class CrmLead(models.Model):
             'total_project': len(project),
             'employee_info': employee_info,
         }
+
+    def _compute_experience(self):
+        for rec in self:
+            rec.experience = (fields.Datetime.today()-rec.create_date).days/365
