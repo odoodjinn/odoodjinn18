@@ -33,8 +33,7 @@
 
                 <!--Hierarchy Tile-->
                 <div id="org_chart" class="card" style="margin-left: 18px; width: 50%; font-weight: bold;
-                    color: MediumPurple; box-shadow:2px 4px 8px 2px rgba(0,0,0.3,0.2); cursor: pointer;"
-                     t-on-click="orgChartClick">
+                    color: MediumPurple;">
                     <div class="o_horizontal_separator mt-4 mb-3 text-uppercase fw-bolder small"
                          style="color: black;">
                         <u>Organization Chart</u>
@@ -48,6 +47,7 @@
                             <span t-else="" id="child" style="color: black;" t-esc="state.user_val.display_name"/>
                         </div>
                         <ul id="chart_list" class="o_org_chart_group_down position-relative"/>
+                        <ul id="emp_chart_list" class="o_org_chart_group_down position-relative"/>
                     </div>
                 </div>
 
@@ -145,11 +145,11 @@
                     <h2><u>All Employees</u></h2>
                     <t t-foreach="state.value" t-as="emp" t-key="emp">
                         <tr>
-                            <td class="card" style="background: Lavender; margin: 5px; font-weight: bold;"
+                            <td class="card" style="background: Lavender; margin: 5px; font-weight: bold; cursor: pointer;"
                                 t-on-click="empClick">
                                 <t t-esc="emp.display_name"/>
-<!--                                <div style="display: none;"><t t-esc="emp.job_id[1]"/></div>-->
                                 <div style="display: none;"><t t-esc="emp.id"/></div>
+                                <div style="display: none;"><t t-esc="emp.user_id[0]"/></div>
                             </td>
                         </tr>
                     </t>
