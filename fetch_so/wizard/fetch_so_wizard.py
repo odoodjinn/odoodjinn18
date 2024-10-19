@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import xmlrpc.client
-from itertools import product
+import re
 
 from odoo import models
 
@@ -51,28 +51,69 @@ class FetchSoWizard(models.TransientModel):
 
         for rec in db_1_so:
             partner = self.env['res.partner'].search_read([('name', '=', rec['partner_id'][1])])
-            so = self.env['sale.order'].search_read([('name', '=', rec['name'])], [])
+            so = self.env['sale.order'].search([('name', '=', rec['name'])]).id
             if not so:
                 db_2_so = models_2.execute_kw(db_2, uid_db2, password_db_2, 'sale.order', 'create', [{
+                    'id': rec['id'],
                     'name': rec['name'],
                     'partner_id': partner[0]['id'],
                     # 'state': rec['state'],
                     'amount_total': rec['amount_total']
-                    }])
-                # print(self.env['sale.order'].browse(db_2_so))
-            lines = rec['order_line']
-            for line in lines:
+                }])
+                lines = rec['order_line']
                 db_1_so_line = models_1.execute_kw(db_1, uid_db1, password_db_1, 'sale.order.line', 'search_read', [], {
-                    'domain': [('id', '=', line)],
+                    'domain': [('id', 'in', lines)],
                     'fields': ['id', 'order_id', 'product_id', 'name', 'product_uom_qty', 'price_unit', 'price_subtotal'],
                 })
-                print(db_1_so_line)
-                # for product in db_1_so_line:
-                # print(product,'//product')
-                # db_2_so_line = models_2.execute_kw(db_2, uid_db2, password_db_2, 'sale.order.line', 'create', [{
-                #     'product_id': db_1_so_line[0]['product_id'][0],
-                # }])
+                print(db_1_so_line,'/a')
+                for line in db_1_so_line:
+                    product_name = re.sub(r"\[.*?\]", "", line['product_id'][1])
+                    product_name_new = product_name.strip()
+                    sale_order = self.env['sale.order'].browse(db_2_so)
+                    print(sale_order,'//so')
+                    product_obj = self.env['product.template'].search([('name', '=', product_name_new)])
+                    db_2_so_line = models_2.execute_kw(db_2, uid_db2, password_db_2, 'sale.order.line', 'create', [{
+                        'name': product_name_new ,
+                        'product_id': product_obj.id,
+                        'product_uom_qty': line['product_uom_qty'],
+                        'order_id': sale_order.id,
+                        'price_unit': line['price_unit'],
+                    }])
 
-                # print(db_2_so_line,'//db2')
-                order_ref = db_1_so_line[0]['order_id'][1]
-                print(order_ref,'//inverse to so')
+
+# PO in current Db
+# first_message = f"Nothing to import from odoo{version}"
+# count = 0
+# for i in db_1_leads:
+#     partner = self.env['res.partner'].search([('name', '=', i['partner_id'][1])])
+#     purchase_order = self.env['purchase.order'].sudo().search([('name','=',i['name'])]).id
+#     if not purchase_order:
+#         purchase_order = models_2.execute_kw(db_2, uid_db2, password_db_2, 'purchase.order', 'create', [{
+#             # 'id': i['id'],
+#             'name': i['name'],
+#             'partner_id': partner.id,
+#             'amount_total': i['amount_total'],
+#             # 'order_line': order_line[0],
+#             'state': i['state'],
+#             'date_approve': i['date_approve'],
+#             'date_planned': i['date_planned'],
+#             'currency_id': i['currency_id'][0]
+#         }] )
+#         order_line = models_1.execute_kw(db_1, uid_db1, password_db_1, 'purchase.order.line', 'search_read', [], {
+#             'domain': [('order_id', '=', i['id'])]
+#         })
+#         for j in order_line:
+#             prod_name= re.sub(r"\[.*?\]", "", j['product_id'][1])
+#             product_name = prod_name.strip()
+#             product_new = self.env['product.template'].search([('name','=',product_name)])
+#             orders = self.env['purchase.order'].browse(purchase_order)
+#             vals = {
+#                 'name': j['name'],
+#                 'product_id': product_new.id,
+#                 'order_id': int(orders.id),
+#                 'product_qty': j['product_qty'],
+#                 'price_unit': j['price_unit'],
+#                 'product_uom': j['product_uom'][0],
+#                 'display_type':j['display_type']
+#             }
+#             models_2.execute_kw(db_2, uid_db2, password_db_2, 'purchase.order.line', 'create',[vals])
