@@ -5,7 +5,14 @@
         <field name="model">fetch.so.wizard</field>
         <field name="arch" type="xml">
             <form>
-                <span>Click the button to fetch records</span>
+                <group>
+                    <field name="type" widget="radio"/>
+                    <field name="api_code" invisible="type in 'uid'" required="type in 'api'"/>
+                    <field name="db_1" required="1"/>
+                    <field name="url_db1" required="1"/>
+                    <field name="username_db_1" required="1"/>
+                    <field name="password_db_1" invisible="type in 'api'" required="type in 'uid'" password="True"/>
+                </group>
                 <footer>
                     <button type="object" name="action_fetch_records" string="Fetch" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
@@ -26,4 +33,5 @@
               action="fetch_so_wizard_action"
               parent="sale.sale_menu_root"
               sequence="40"/>
+
 </odoo>
