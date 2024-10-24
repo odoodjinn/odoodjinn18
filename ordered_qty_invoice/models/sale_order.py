@@ -6,7 +6,6 @@ from odoo import api, fields, models
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    is_only_ordered = fields.Boolean(related='partner_id.is_only_ordered')
 
     def action_testingg(self):
         print(self.env['product.product'].search([('invoice_policy', '=', 'order')]))
@@ -24,10 +23,13 @@ class SaleOrder(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    @api.onchange('product_id')
+    is_only_ordered = fields.Boolean(related='order_id.partner_id.is_only_ordered')
+    product_custom = fields.Many2many('product.template')
+
+    @api.onchange('is_only_ordered')
     def _onchange_product_id(self):
-        if self.order_id.is_only_ordered:
-            domain = [('active', '!=', True)]
-            for rec in self:
-                if rec.product_id.invoice_policy != 'order':
-                    return {'domain': {'product_id': domain}}
+        if self.is_only_ordered:
+            domain = [('invoice_policy', '=', 'order')]
+        else:
+            domain = []
+        return {'domain': {'product_custom': domain}}

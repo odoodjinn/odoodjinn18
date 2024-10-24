@@ -12,7 +12,7 @@
     'depends': ['base', 'sale', 'contacts'],
     'data': [
         'views/res_partner_views.xml',
-        'views/sale_order_views.xml',
+        # 'views/sale_order_views.xml',
     ],
     'license': 'LGPL-3',
 }
