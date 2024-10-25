@@ -13,6 +13,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/todo_views.xml',
+        'data/ir_cron_data.xml',
     ],
     'application': True,
     'license': 'LGPL-3',
