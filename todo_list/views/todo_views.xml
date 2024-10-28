@@ -1,34 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="todo_view_search" model="ir.ui.view">
+        <field name="name">todo.view.search</field>
+        <field name="model">todo</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="My Activities" name="my_activity_filter" domain="[('create_uid', '=', uid)]"/>
+                <filter string="Today Activities" name="today_activity_filter"
+                        domain="[('due_date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Late Activities" name="late_activity_filter"
+                        domain="[('due_date', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Future Activities" name="future_activity_filter"
+                        domain="[('due_date', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+            </search>
+        </field>
+    </record>
+
     <record id="todo_view_form" model="ir.ui.view">
         <field name="name">todo.view.form</field>
         <field name="model">todo</field>
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button type="object" string="Mark As Done" name="action_done" class="oe_highlight" invisible="state in ['4_done','5_cancel']"/>
-                    <button type="object" string="Cancel" name="action_cancel" invisible="state in ['4_done','5_cancel']"/>
-                    <field name="state" widget="statusbar" options="{'clickable': '1'}" statusbar_visible="1_today,3_expire"/>
+                    <button type="object" string="Mark As Done" name="action_done" class="oe_highlight"
+                            invisible="state in ['4_done','5_cancel']"/>
+                    <button type="object" string="Cancel" name="action_cancel"
+                            invisible="state in ['4_done','5_cancel']"/>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"
+                           statusbar_visible="1_today,3_expire"/>
                 </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="name" readonly="state in ['4_done','5_cancel']"/>
                             <field name="priority" widget="priority" readonly="state in ['4_done','5_cancel']"/>
-                            <field name="activity_ids" widget="list_activity" readonly="state in ['4_done','5_cancel']"/>
+                            <field name="activity_ids" widget="list_activity"
+                                   readonly="state in ['4_done','5_cancel']"/>
                         </group>
                         <group>
                             <field name="due_date" readonly="state in ['4_done','5_cancel']"/>
                             <field name="recurring" readonly="state in ['4_done','5_cancel']"/>
                             <label for="recurring_interval" string="Repeat Every" invisible="not recurring"/>
-                            <div>
-                                <field name="recurring_interval" invisible="not recurring" class="oe_inline o_input_6ch me-2"/>
-                                <field name="recurring_type" invisible="not recurring" nolabel="1" class="oe_inline align-top me-2"/>
-                                <field name="recurring_end" invisible="not recurring" nolabel="1" class="oe_inline align-top me-2"/>
-                                <field name="recurring_end_date" invisible="recurring_end not in 'until'" nolabel="1" class="oe_inline align-top me-2" placeholder='12/31/2024'/>
+                            <div invisible="not recurring">
+                                <field name="recurring_interval" invisible="not recurring"
+                                       class="oe_inline o_input_6ch me-2" readonly="state in ['4_done','5_cancel']"/>
+                                <field name="recurring_unit" invisible="not recurring" nolabel="1"
+                                       class="oe_inline align-top me-2" readonly="state in ['4_done','5_cancel']"/>
+                                <field name="recurring_type" invisible="not recurring" nolabel="1"
+                                       class="oe_inline align-top me-2" readonly="state in ['4_done','5_cancel']"/>
+                                <field name="recurring_until" invisible="recurring_type not in 'until'"
+                                       required="recurring and recurring_type in 'until'" nolabel="1"
+                                       class="oe_inline align-top me-2" placeholder='MM/DD/YYYY'
+                                       readonly="state in ['4_done','5_cancel']"/>
                             </div>
+                            <field name="user_id" widget="many2one_avatar_user"
+                                   readonly="state in ['4_done','5_cancel']"/>
                         </group>
-                        <field name="description" placeholder="Add a description..." readonly="state in ['4_done','5_cancel']"/>
+                        <field name="description" placeholder="Add a description..."
+                               readonly="state in ['4_done','5_cancel']"/>
                     </group>
                 </sheet>
             </form>
@@ -54,7 +83,7 @@
                                     <field name="activity_ids" widget="kanban_activity" style="margin-right: 2px"/>
                                 </div>
                                 <div class="d-flex ms-auto">
-                                    <field name="user_ids" widget="many2many_avatar_user"/>
+                                    <field name="user_id" widget="many2one_avatar_user"/>
                                 </div>
                             </footer>
                         </main>
@@ -93,24 +122,6 @@
         </field>
     </record>
 
-    <record id="todo_view_search" model="ir.ui.view">
-        <field name="name">todo.view.search</field>
-        <field name="model">todo</field>
-        <field name="arch" type="xml">
-            <search>
-                <filter string="My Activities" name="my_activity_filter" domain="[('create_uid', '=', uid)]"/>
-                <filter string="Today Activities" name="today_activity_filter" domain="[('due_date', '=', context_today().strftime('%Y-%m-%d'))]"/>
-                <filter string="Late Activities" name="late_activity_filter" domain="[('due_date', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
-                <filter string="Future Activities" name="future_activity_filter" domain="[('due_date', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
-<!--                <filter string="Archived" name="archived_filter" domain="[('active', '!=', True)]"/>-->
-<!--                <group string="Group By">-->
-<!--                    <filter string="Country" name="country" context="{'group_by':'country_id'}"/>-->
-<!--                    <filter string="State" name="state" context="{'group_by':'state_id'}"/>-->
-<!--                </group>-->
-            </search>
-        </field>
-    </record>
-
     <record id="activity_action" model="ir.actions.act_window">
         <field name="name">Activity</field>
         <field name="res_model">todo</field>
@@ -124,5 +135,4 @@
 
     <menuitem id="todo_list_root" name="ToDo List"/>
     <menuitem id="activities" name="Activities" action="activity_action" parent="todo_list_root"/>
-
 </odoo>
