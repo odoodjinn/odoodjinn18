@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+    <!-- Standard stages for To-Do -->
+    <record id="stage_0" model="todo.stage">
+        <field name="name">Today</field>
+        <field name="sequence" eval="1" />
+    </record>
+    <record id="stage_1" model="todo.stage">
+        <field name="name">Planned</field>
+        <field name="sequence" eval="2" />
+    </record>
+    <record id="stage_2" model="todo.stage">
+        <field name="name">Expired</field>
+        <field name="sequence" eval="3" />
+    </record>
+    <record id="stage_3" model="todo.stage">
+        <field name="name">Done</field>
+        <field name="sequence" eval="4" />
+    </record>
+    <record id="stage_4" model="todo.stage">
+        <field name="name">Cancelled</field>
+        <field name="sequence" eval="5" />
+    </record>
+</data>
+</odoo>

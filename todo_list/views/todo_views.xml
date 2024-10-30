@@ -23,41 +23,39 @@
             <form>
                 <header>
                     <button type="object" string="Mark As Done" name="action_done" class="oe_highlight"
-                            invisible="state in ['4_done','5_cancel']"/>
+                            invisible="state in ['done','cancel']"/>
                     <button type="object" string="Cancel" name="action_cancel"
-                            invisible="state in ['4_done','5_cancel']"/>
-                    <field name="state" widget="statusbar" options="{'clickable': '1'}"
-                           statusbar_visible="1_today,3_expire"/>
+                            invisible="state in ['done','cancel']"/>
+                    <field name="stage_id" widget="statusbar"/>
                 </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="name" readonly="state in ['4_done','5_cancel']"/>
-                            <field name="priority" widget="priority" readonly="state in ['4_done','5_cancel']"/>
-                            <field name="activity_ids" widget="list_activity"
-                                   readonly="state in ['4_done','5_cancel']"/>
+                            <field name="name" readonly="state in ['done','cancel']"/>
+                            <field name="priority" widget="priority" readonly="state in ['done','cancel']"/>
+                            <field name="user_id" widget="many2one_avatar_user"
+                                   readonly="state in ['done','cancel']"/>
                         </group>
                         <group>
-                            <field name="due_date" readonly="state in ['4_done','5_cancel']"/>
-                            <field name="recurring" readonly="state in ['4_done','5_cancel']"/>
+                            <field name="due_date" readonly="state in ['done','cancel']"/>
+                            <field name="recurring" readonly="state in ['done','cancel']"/>
                             <label for="recurring_interval" string="Repeat Every" invisible="not recurring"/>
                             <div invisible="not recurring">
                                 <field name="recurring_interval" invisible="not recurring"
-                                       class="oe_inline o_input_6ch me-2" readonly="state in ['4_done','5_cancel']"/>
+                                       class="oe_inline o_input_6ch me-2" readonly="state in ['done','cancel']"/>
                                 <field name="recurring_unit" invisible="not recurring" nolabel="1"
-                                       class="oe_inline align-top me-2" readonly="state in ['4_done','5_cancel']"/>
+                                       class="oe_inline align-top me-2" readonly="state in ['done','cancel']"/>
                                 <field name="recurring_type" invisible="not recurring" nolabel="1"
-                                       class="oe_inline align-top me-2" readonly="state in ['4_done','5_cancel']"/>
+                                       class="oe_inline align-top me-2" readonly="state in ['done','cancel']"/>
                                 <field name="recurring_until" invisible="recurring_type not in 'until'"
                                        required="recurring and recurring_type in 'until'" nolabel="1"
                                        class="oe_inline align-top me-2" placeholder='MM/DD/YYYY'
-                                       readonly="state in ['4_done','5_cancel']"/>
+                                       readonly="state in ['done','cancel']"/>
                             </div>
-                            <field name="user_id" widget="many2one_avatar_user"
-                                   readonly="state in ['4_done','5_cancel']"/>
                         </group>
                         <field name="description" placeholder="Add a description..."
-                               readonly="state in ['4_done','5_cancel']"/>
+                               readonly="state in ['done','cancel']"/>
+                        <chatter/>
                     </group>
                 </sheet>
             </form>
@@ -68,8 +66,8 @@
         <field name="name">todo.view.kanban</field>
         <field name="model">todo</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="state" class="o_kanban_mobile">
-                <field name="state"/>
+            <kanban default_group_by="stage_id" default_order="priority desc" records_draggable="false">
+                <field name="stage_id"/>
                 <templates>
                     <t t-name="card">
                         <main>
@@ -100,24 +98,35 @@
             <list edit="false">
                 <field name="priority" widget="priority"/>
                 <field name="name"
-                   decoration-warning="state  == '1_today'"
-                   decoration-info="state == '2_plan'"
-                   decoration-danger="state == '3_expire'"
-                   decoration-success="state  == '4_done'"
-                   decoration-muted="state  == '5_cancel'"/>
+                   decoration-warning="state in 'today'"
+                   decoration-info="state in 'plan'"
+                   decoration-danger="state in 'expire'"
+                   decoration-success="state in 'done'"
+                   decoration-muted="state in 'cancel'"/>
                 <field name="activity_ids" widget="list_activity"/>
                 <field name="due_date"
-                   decoration-warning="state  == '1_today'"
-                   decoration-info="state == '2_plan'"
-                   decoration-danger="state == '3_expire'"
-                   decoration-success="state  == '4_done'"
-                   decoration-muted="state  == '5_cancel'"/>
-                <field name="state" widget="badge"
-                   decoration-warning="state  == '1_today'"
-                   decoration-info="state == '2_plan'"
-                   decoration-danger="state == '3_expire'"
-                   decoration-success="state  == '4_done'"
-                   decoration-muted="state  == '5_cancel'"/>
+                   decoration-warning="state in 'today'"
+                   decoration-info="state in 'plan'"
+                   decoration-danger="state in 'expire'"
+                   decoration-success="state in 'done'"
+                   decoration-muted="state in 'cancel'"/>
+                <field name="stage_id" widget="badge"
+                   decoration-warning="state in 'today'"
+                   decoration-info="state in 'plan'"
+                   decoration-danger="state in 'expire'"
+                   decoration-success="state in 'done'"
+                   decoration-muted="state in 'cancel'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="todo_stage_view_list" model="ir.ui.view">
+        <field name="name">todo.stage.view.list</field>
+        <field name="model">todo.stage</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="sequence"/>
             </list>
         </field>
     </record>
@@ -133,6 +142,14 @@
        </field>
     </record>
 
+    <record id="stage_action" model="ir.actions.act_window">
+        <field name="name">Stages</field>
+        <field name="res_model">todo.stage</field>
+        <field name="view_mode">list</field>
+    </record>
+
     <menuitem id="todo_list_root" name="ToDo List"/>
     <menuitem id="activities" name="Activities" action="activity_action" parent="todo_list_root"/>
+    <menuitem id="configuration" name="Configuration" parent="todo_list_root"/>
+    <menuitem id="stage" name="To-Do Stages" parent="configuration" action="stage_action"/>
 </odoo>

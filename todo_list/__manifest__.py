@@ -12,8 +12,9 @@
     'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
-        'views/todo_views.xml',
         'data/ir_cron_data.xml',
+        'data/todo_data.xml',
+        'views/todo_views.xml',
     ],
     'application': True,
     'license': 'LGPL-3',
