@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="test_view" model="ir.actions.act_window">
+        <field name="name">Test view</field>
+        <field name="res_model">test.test</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="test_menu" name="Testtt"/>
+    <menuitem id="test_child" parent="test_menu" name="childd" action="test_view"/>
+</odoo>
