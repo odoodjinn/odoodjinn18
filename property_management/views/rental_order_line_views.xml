@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="rental_order_line_view_list" model="ir.ui.view">
+        <field name="name">rental.order.line.view.list</field>
+        <field name="model">rental.order.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="property_id"/>
+                <field name="owner_id"/>
+                <field name="start_date" widget="daterange"
+                                   options='{"end_date_field": "end_date"}'/>
+                <field name="end_date" column_invisible="True" required="start_date"/>
+                <field name="total_days" digits="[2,1]"/>
+                <field name="rent_lease_amount"/>
+                <field name="total_amount"/>
+            </list>
+        </field>
+    </record>
+</odoo>

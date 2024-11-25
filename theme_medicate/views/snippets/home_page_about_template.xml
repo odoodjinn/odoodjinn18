@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="home_page_about" name="About Text | Image">
+        <section class="section-about w-100 float-left">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-img">
+                            <img class="w-100" t-att-src="'/theme_medicate/static/src/img/img-about.jpg'"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-container w-100 float-left">
+                            <h3>
+                                <b>Lorem ipsum dolor sit amet, consectetur</b>
+                            </h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in tincidunt
+                                diam. Mauris justo erat, scelerisque non ante nec
+                            </p>
+                            <ul class="pl-0">
+                                <t t-foreach="[
+                                'Comprehensive Inpatient Services',
+                                'Medical And Surgical Services',
+                                'Outpatient Services',
+                                'Medicine &amp; instrument',
+                                'Specialised Support Service',
+                                'Instant Operation &amp; Appointment'
+                            ]" t-as="item">
+                                    <li>
+                                        <img class="mr-2"
+                                             t-att-src="'/theme_medicate/static/src/img/arrow-about-pharma.png'"/>
+                                        <t t-esc="item"/>
+                                    </li>
+                                </t>
+                            </ul>
+                            <a href="#"
+                               class="a-time-table text-uppercase float-left mt-5 btn-timetable text-white pt-2 pb-2 pl-3 pr-3 text-decoration-none">
+                                Read more &amp;nbsp;&amp;nbsp; +
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

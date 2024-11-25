@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="property_list" name="Property Details">
+        <section class="dynamic_snippet">
+            <h2 class="text-center">Property List</h2>
+            <div id="top_properties">
+            </div>
+        </section>
+    </template>
+</odoo>

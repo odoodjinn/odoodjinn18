@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="home_page_facility_provided" name="Facilities Provided">
+        <section class="section-what-facilities-provided mb-4">
+            <h3 class="text-dark w-100 float-left text-center">What Facilities We Provided</h3>
+            <div class="scroller mt-4 w-100 float-left">
+                <div id="facilitiesCarousel" class="carousel slide">
+                    <!-- Carousel indicators -->
+                    <div class="carousel-indicators custom-indicators">
+                        <button type="button" data-bs-target="#facilitiesCarousel" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1" id="indicator-button"/>
+                        <button type="button" data-bs-target="#facilitiesCarousel" data-bs-slide-to="1"
+                                aria-label="Slide 2" id="indicator-button"/>
+                    </div>
+                    <!-- Carousel items -->
+                    <div class="carousel-inner" style="margin-bottom: 30px;">
+                        <!-- First Carousel Item -->
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <img src="/theme_medicate/static/src/img/facility-img-eye-care.jpg"
+                                                 alt="Eye Care Services"/>
+                                            <div>
+                                                <p class="facilities-content">Lorem Ipsum</p>
+                                                <h3 class="facilities-header">Eye Care Services</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <img src="/theme_medicate/static/src/img/facility-img-cardiology-care.jpg"
+                                                 alt="Cardiology Services"/>
+                                            <div>
+                                                <p class="facilities-content">Lorem Ipsum</p>
+                                                <h3 class="facilities-header">Cardiology Services</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <img src="/theme_medicate/static/src/img/facility-img-dental-services.jpg"
+                                                 alt="Dental Services"/>
+                                            <div>
+                                                <p class="facilities-content">Lorem Ipsum</p>
+                                                <h3 class="facilities-header">Dental Services</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Second Carousel Item -->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <img src="/theme_medicate/static/src/img/facility-img-eye-care.jpg"
+                                                 alt="Eye Care Services"/>
+                                            <div>
+                                                <p class="facilities-content">Lorem Ipsum</p>
+                                                <h3 class="facilities-header">Eye Care Services</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <img src="/theme_medicate/static/src/img/facility-img-cardiology-care.jpg"
+                                                 alt="Cardiology Services"/>
+                                            <div>
+                                                <p class="facilities-content">Lorem Ipsum</p>
+                                                <h3 class="facilities-header">Cardiology Services</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <img src="/theme_medicate/static/src/img/facility-img-dental-services.jpg"
+                                                 alt="Dental Services"/>
+                                            <div>
+                                                <p class="facilities-content">Lorem Ipsum</p>
+                                                <h3 class="facilities-header">Dental Services</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

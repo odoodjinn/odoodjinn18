@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="home_page_great_work" name="Great Work">
+        <section class="section-great-work w-100 float-left">
+            <div class="container">
+                <div class="row">
+                    <h3 class=" w-100 float-left text-white text-center mt-5 mb-5">All The Great Work That We Done
+                    </h3>
+                    <div class="col-lg-12">
+                        <div id="GreatWorkCarousel" class="carousel slide">
+                            <!-- Carousel indicators -->
+                            <div class="carousel-indicators custom-indicators" style="margin-bottom: -20px;">
+                                <button type="button" data-bs-target="#GreatWorkCarousel" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"/>
+                                <button type="button" data-bs-target="#GreatWorkCarousel" data-bs-slide-to="1"
+                                        aria-label="Slide 2" id="indicator-button"/>
+                                <button type="button" data-bs-target="#GreatWorkCarousel" data-bs-slide-to="2"
+                                        aria-label="Slide 3" id="indicator-button"/>
+                            </div>
+
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-1.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-2.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-3.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-4.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-1.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-2.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-3.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-4.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 mb-4">
+                                            <div class="card">
+                                                <div class="great-work-container">
+                                                    <div class="btn-great-work">
+                                                        <a href="#" class="text-decoration-none">Investigations</a>
+                                                    </div>
+                                                    <img src="/theme_medicate/static/src/img/pharma-theme-greate-work-do-1.jpg"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,285 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<odoo>-->
+<!--    <template id="home_page_facility_provided" name="Facilities Provided">-->
+<!--        <section class="facilities-section py-5">-->
+<!--            <div class="container">-->
+<!--                <h2 class="text-center mb-5">What Facilities We Provided</h2>-->
+<!--                <div id="facilitiesCarousel" class="carousel slide" data-bs-ride="carousel">-->
+<!--                    &lt;!&ndash; Carousel indicators &ndash;&gt;-->
+<!--                    <div class="carousel-indicators">-->
+<!--                        <button type="button" data-bs-target="#facilitiesCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"> </button>-->
+<!--                        <button type="button" data-bs-target="#facilitiesCarousel" data-bs-slide-to="1" aria-label="Slide 2"> </button>-->
+<!--                        <button type="button" data-bs-target="#facilitiesCarousel" data-bs-slide-to="2" aria-label="Slide 3"> </button>-->
+<!--                    </div>-->
+
+<!--                    <ol class="carousel-indicators">-->
+<!--                        <li data-bs-target="#rightContentCarousel" data-bs-slide-to="0" class="active">-->
+<!--                        </li>-->
+<!--                        <li data-bs-target="#rightContentCarousel" data-bs-slide-to="1">-->
+<!--                        </li>-->
+<!--                        <li data-bs-target="#rightContentCarousel" data-bs-slide-to="2">-->
+<!--                        </li>-->
+<!--                        <li data-bs-target="#rightContentCarousel" data-bs-slide-to="3">-->
+<!--                        </li>-->
+<!--                    </ol>-->
+
+                    <!-- Carousel items -->
+<!--                    <div class="carousel-inner">-->
+<!--                        <div class="carousel-item active">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="card text-center shadow-sm">-->
+<!--                                        <img src="/theme_medicate/static/src/img/facility-img-eye-care.jpg"-->
+<!--                                             class="card-img-top"-->
+<!--                                             alt="Eye Care"/>-->
+<!--                                        <div class="card-body">-->
+<!--                                            <h5 class="card-title">Eye Care Services</h5>-->
+<!--                                            <p class="card-text">Lorum ipsum</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="card text-center shadow-sm">-->
+<!--                                        <img src="/theme_medicate/static/src/img/facility-img-cardiology-care.jpg"-->
+<!--                                             class="card-img-top"-->
+<!--                                             alt="Cardiology"/>-->
+<!--                                        <div class="card-body">-->
+<!--                                            <h5 class="card-title">Cardiology Services</h5>-->
+<!--                                            <p class="card-text">Lorum ipsum</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="card text-center shadow-sm">-->
+<!--                                        <img src="/theme_medicate/static/src/img/facility-img-dental-services.jpg"-->
+<!--                                             class="card-img-top"-->
+<!--                                             alt="Dental Services"/>-->
+<!--                                        <div class="card-body">-->
+<!--                                            <h5 class="card-title">Dental Services</h5>-->
+<!--                                            <p class="card-text">Lorum ipsum</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="carousel-item">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="card text-center shadow-sm">-->
+<!--                                        <img src="/theme_medicate/static/src/img/facility-img-eye-care.jpg"-->
+<!--                                             class="card-img-top"-->
+<!--                                             alt="Eye Care"/>-->
+<!--                                        <div class="card-body">-->
+<!--                                            <h5 class="card-title">Eye Care Services</h5>-->
+<!--                                            <p class="card-text">Lorum ipsum</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="card text-center shadow-sm">-->
+<!--                                        <img src="/theme_medicate/static/src/img/facility-img-cardiology-care.jpg"-->
+<!--                                             class="card-img-top"-->
+<!--                                             alt="Cardiology"/>-->
+<!--                                        <div class="card-body">-->
+<!--                                            <h5 class="card-title">Cardiology Services</h5>-->
+<!--                                            <p class="card-text">Lorum ipsum</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="card text-center shadow-sm">-->
+<!--                                        <img src="/theme_medicate/static/src/img/facility-img-dental-services.jpg"-->
+<!--                                             class="card-img-top"-->
+<!--                                             alt="Dental Services"/>-->
+<!--                                        <div class="card-body">-->
+<!--                                            <h5 class="card-title">Dental Services</h5>-->
+<!--                                            <p class="card-text">Lorum ipsum</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                        <!-- carousel inner-->
+<!--                    <button class="carousel-control-prev" type="button" data-bs-target="#facilitiesCarousel" data-bs-slide="prev">-->
+<!--                        <span class="carousel-control-prev-icon" aria-hidden="true">-->
+<!--                        </span>-->
+<!--                        <span class="visually-hidden">Previous</span>-->
+<!--                    </button>-->
+<!--                    <button class="carousel-control-next" type="button" data-bs-target="#facilitiesCarousel" data-bs-slide="next">-->
+<!--                        <span class="carousel-control-next-icon" aria-hidden="true">-->
+<!--                        </span>-->
+<!--                        <span class="visually-hidden">Next</span>-->
+<!--                    </button>-->
+<!--                </div> &lt;!&ndash; facility carousel&ndash;&gt;-->
+<!--            </div> &lt;!&ndash; container &ndash;&gt;-->
+<!--            <style>-->
+<!--                .facilities-section h2 {-->
+<!--                24/26font-weight: bold;-->
+<!--                font-size: 2rem;-->
+<!--                }-->
+<!--                .card {-->
+<!--                border: none;-->
+<!--                border-radius: 10px;-->
+<!--                }-->
+<!--                .card-img-top {-->
+<!--                border-top-left-radius: 10px;-->
+<!--                border-top-right-radius: 10px;-->
+<!--                max-height: 200px;-->
+<!--                object-fit: cover;-->
+<!--                }-->
+<!--                .carousel-indicators button {-->
+<!--                background-color: black;-->
+<!--                }-->
+<!--                .carousel-indicators .active {-->
+<!--                background-color: black;-->
+<!--                }-->
+<!--            </style>-->
+<!--        </section>-->
+
+
+
+
+<!--        <section class="facilities-section py-5">-->
+<!--            <div class="container">-->
+<!--                <h3 class="text-center mb-3">What Facilities We Provided</h3>-->
+<!--                <div class="row">-->
+<!--                    &lt;!&ndash; Dynamic Facility Cards &ndash;&gt;-->
+<!--                    <t t-foreach="[-->
+<!--                    {'image': 'facility-img-eye-care.jpg', 'header': 'Eye care services'},-->
+<!--                    {'image': 'facility-img-cardiology-care.jpg', 'header': 'Cardiology services'},-->
+<!--                    {'image': 'facility-img-dental-services.jpg', 'header': 'Dental services'},-->
+<!--                    {'image': 'facility-img-eye-care.jpg', 'header': 'Eye care services'},-->
+<!--                    ]" t-as="facility">-->
+
+<!--                        <div class="col-lg-4 col-md-6 mb-4">-->
+<!--                            <div class="facility-card h-100">-->
+<!--                                <div class="card-body text-center">-->
+<!--                                    <img t-att-src="'/theme_medicate/static/src/img/' + facility['image']"-->
+<!--                                         class="img-fluid mb-4" t-att-alt="facility['header']"/>-->
+<!--                                    <p class="text-primary mb-2">Lorum ipsum</p>-->
+<!--                                    <h3 class="facility-title" t-esc="facility['header']"></h3>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Carousel Indicators &ndash;&gt;-->
+<!--                <div class="text-center mt-4">-->
+<!--                    <span class="carousel-dot active"></span>-->
+<!--                    <span class="carousel-dot"></span>-->
+<!--                    <span class="carousel-dot"></span>-->
+<!--                    <span class="carousel-dot"></span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+
+
+
+<!--        <section class="section-what-facilities-provided w-100 float-left">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12">-->
+<!--                        <h3 class="text-dark w-100 float-left text-center">What Facilities We Provided</h3>-->
+<!--                        <div class="scroller mt-4 w-100 float-left">-->
+<!--                            <div class="swiper mySwiper-4">-->
+<!--                                <div class="swiper-wrapper">-->
+<!--                                    <t t-foreach="[-->
+<!--                                    {'image': 'facility-img-eye-care.jpg', 'header': 'Eye care services'},-->
+<!--                                    {'image': 'facility-img-cardiology-care.jpg', 'header': 'Cardiology services'},-->
+<!--                                    {'image': 'facility-img-dental-services.jpg', 'header': 'Dental services'},-->
+<!--                                    {'image': 'facility-img-eye-care.jpg', 'header': 'Eye care services'},-->
+<!--                                    {'image': 'facility-img-cardiology-care.jpg', 'header': 'Cardiology services'},-->
+<!--                                    {'image': 'facility-img-dental-services.jpg', 'header': 'Dental services'}-->
+<!--                                ]" t-as="facility">-->
+<!--                                        <div class="swiper-slide">-->
+<!--                                            <div class="facilities-container w-100 float-left p-4">-->
+<!--                                                <img t-att-src="'/theme_medicate/static/src/img/' + facility['image']"/>-->
+<!--                                                <p class="text-left mt-4">-->
+<!--                                                    <span class="facilities-content">Lorum ipsum</span>-->
+<!--                                                    <br/>-->
+<!--                                                    <span class="facilities-header text-dark">-->
+<!--                                                        <t t-esc="facility['header']"/>-->
+<!--                                                    </span>-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </t>-->
+<!--                                </div>-->
+<!--                                <div class="swiper-pagination"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+
+<!--<section class="facilities-section py-5">-->
+<!--            <div class="container">-->
+<!--                <h3 class="text-center mb-3">What Facilities We Provided</h3>-->
+<!--                <div id="facilitiesCarousel" class="carousel slide" data-bs-ride="carousel"-->
+<!--                     t-att-data-bs-interval="interval">-->
+<!--                    &lt;!&ndash; Carousel Items &ndash;&gt;-->
+<!--                    <div class="carousel-inner  row w-100 mx-auto" role="listbox">-->
+<!--                        <div class="row">-->
+<!--                            &lt;!&ndash; Dynamic Facility Cards &ndash;&gt;-->
+<!--                            <t t-foreach="[-->
+<!--                                {'image': 'facility-img-eye-care.jpg', 'header': 'Eye care services'},-->
+<!--                                {'image': 'facility-img-cardiology-care.jpg', 'header': 'Cardiology services'},-->
+<!--                                {'image': 'facility-img-dental-services.jpg', 'header': 'Dental services'},-->
+<!--                                {'image': 'facility-img-eye-care.jpg', 'header': 'Eye care services'},-->
+<!--                                ]" t-as="facility" t-esc-key="index">-->
+
+<!--                                <div t-att-class="'carousel-item ' + ('active' if index == 0 else '')">-->
+<!--                                    <div class="facility-card h-100 text-center">-->
+<!--                                        <div class="card-body">-->
+<!--                                            <img t-att-src="'/theme_medicate/static/src/img/' + facility['image']"-->
+<!--                                                 class="img-fluid mb-4" t-att-alt="facility['header']"/>-->
+<!--                                            <p class="text-primary mb-2">Lorum ipsum</p>-->
+<!--                                            <h3 class="facility-title" t-esc="facility['header']"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </t>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; Carousel Controls &ndash;&gt;-->
+<!--                    <button class="carousel-control-prev" type="button" data-bs-target="#facilitiesCarousel"-->
+<!--                            data-bs-slide="prev">-->
+<!--                        <span class="carousel-control-prev-icon" aria-hidden="true"/>-->
+<!--                        <span class="visually-hidden">Previous</span>-->
+<!--                    </button>-->
+<!--                    <button class="carousel-control-next" type="button" data-bs-target="#facilitiesCarousel"-->
+<!--                            data-bs-slide="next">-->
+<!--                        <span class="carousel-control-next-icon" aria-hidden="true"/>-->
+<!--                        <span class="visually-hidden">Next</span>-->
+<!--                    </button>-->
+<!--                    &lt;!&ndash; Carousel Indicators &ndash;&gt;-->
+<!--                    <div class="carousel-indicators">-->
+<!--                        <t t-foreach="[0, 1, 2, 3]" t-as="dot_index">-->
+<!--                            <button type="button" data-bs-target="#facilitiesCarousel"-->
+<!--                                    t-att-data-bs-slide-to="dot_index"-->
+<!--                                    t-att-class="'active' if dot_index == 0 else ''"-->
+<!--                                    aria-current="dot_index == 0 ? 'true' : ''"-->
+<!--                                    aria-label="Slide #{dot_index + 1}"/>-->
+<!--                        </t>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+
+
+<!--        </section>-->
+<!--    </template>-->
+<!--</odoo>-->

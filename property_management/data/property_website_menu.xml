@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="property_details_website_menu" model="website.menu">
+            <field name="name">Property Details</field>
+            <field name="url">/property_details</field>
+            <field name="parent_id" ref="website.main_menu"/>
+        </record>
+        <record id="rental_lease_website_menu" model="website.menu">
+            <field name="name">Rental/Lease</field>
+            <field name="url">/management</field>
+            <field name="parent_id" ref="website.main_menu"/>
+        </record>
+        <record id="rental_lease_invoice_menu" model="website.menu">
+            <field name="name">Invoices</field>
+            <field name="url">/management/invoice</field>
+            <field name="parent_id" ref="website.main_menu"/>
+        </record>
+    </data>
+</odoo>

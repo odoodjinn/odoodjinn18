@@ -1,0 +1,184 @@
+.carousel-item{ position: relative; }
+.carousel-content{ position: absolute; z-index:999; top: 187px; left: 15px; }
+.section-banner .carousel-item{ margin-top: -1%; }
+
+
+.container-24-hours{ background-color:#0480e1; font-size:22px; height:287px; }
+.container-24-hours img{ width: 255px; }
+.container-24-hours span img{ width: 50px; }
+
+.container-doctors-time-table{background-color:#13457a;  }
+.container-doctors-time-table img{ width:75px; }
+.btn-timetable{ background-color:#0480e1; }
+.container-doctors-time-table { height: 287px; }
+.a-time-table{ border-radius:4px; font-size: 14px; padding: 15px; }
+
+.opening-time{ background-color:#0480e1;  height: 287px;  }
+.opening-time img { width:75px; }
+.opening-time p{ font-size: 22px; }
+.opening-time table{ font-size: 13px; }
+
+.navbar-expand-lg .navbar-nav .nav-link { font-size: 14px; font-weight: 600; }
+.navbar .navbar-collapse { margin-left: 30%; }
+.header-section{ background-color:#024c80; }
+.call-section img{ width:18px; }
+.email-section img{ width:18px; margin-left: 20px; }
+.social-media-icons img { width:18px; margin: 10px; }
+
+.section-service{ position: relative; top:-72px;}
+
+.about-container { margin-bottom: 15%;}
+.about-container ul { margin-bottom: 10% }
+.about-container ul li {
+    list-style: none;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+.about-container ul li img {
+    width: 20px;
+}
+
+#facilitiesCarousel {
+    max-width: 80%; /* Allow full width for smaller screens */
+    margin: 0 auto; /* Center the carousel horizontally */
+    padding: 10px; /* Add some padding for smaller screens */
+    .card-body {
+        background: #e7e9eb;
+        padding: 20px;
+
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    .facilities-content {
+        font-size: 14px; /* Adjust font size for mobile */
+        color: #0480e1;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    .facilities-header {
+        font-size: 16px; /* Adjust font size for mobile */
+        text-align: left;
+        margin-top: 0;
+    }
+    .carousel-inner .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center items horizontally */
+    }
+    @media (min-width: 768px) {
+        .col-md-6 {
+            flex: 0 0 50%; /* Two items per row on tablets */
+            max-width: 50%;
+        }
+    }
+    @media (min-width: 992px) {
+        .col-lg-4 {
+            flex: 0 0 33.333%; /* Three items per row on desktops */
+            max-width: 33.333%;
+        }
+    }
+}
+.custom-indicators button {
+    width: 12px !important; /* Dot diameter */
+    height: 12px !important;
+    border-radius: 50% !important; /* Make them circular */
+    background-color: grey !important; /* Default color */
+    transition: background-color 0.3s ease;
+    margin-bottom: 5%;
+}
+.custom-indicators button.active {
+    background-color: #0056b3 !important; /* Active dot color */
+}
+
+.about-content-right-side{ background-image: url(/theme_medicate/static/src/img/pharma-theme-about-content.png); background-repeat: no-repeat; height: 500px; background-size:contain; background-position:right;   }
+.about-count{ width: 40%; text-align: center; float: right;}
+
+.section-great-work{
+    background-image: url(/theme_medicate/static/src/img/pharma-theme-greate-work-do.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    .great-work-container img:hover { opacity:.5 ; }
+    .great-work-container img:{max-width: 100%; height: 20%;}
+    .great-work-container{ background-color:#333; }
+    .btn-great-work{
+        position: absolute;
+        z-index: 999;
+        bottom: 21%;
+        left: 104px;
+        padding: 16px;
+        background-color: #fff;
+        display: none;
+    }
+    .btn-great-work a{ color:#0480e1; }
+    .great-work-container:hover .btn-great-work{ display: block; }
+    .card {
+        height: 500px; /* Adjust the height as needed */
+        overflow: hidden; /* Prevent content from exceeding the card's boundaries */
+        border-radius: 0;
+        margin-top: 10%;
+    }
+    .card img {
+        height: 500px; /* Limit the height of the image */
+        object-fit: cover; /* Ensures the image scales and crops to fit nicely */
+        width: 100%; /* Make sure the image spans the width of the card */
+    }
+}
+
+.container-working-progress h3 { font-size: 18px; }
+.container-working-progress p { font-size:14px; color:#717171; }
+
+.section-heart-specialists .container-heart-specialists {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 15px;
+}
+.section-heart-specialists img {
+    width: 100%;
+    height: auto;
+}
+.container-heart-speclist-name{
+  position: absolute;
+  background-color: #fff;
+  width: 62%;
+  bottom: -18px;
+  left: 75px;
+  padding: 9px;
+}
+
+.section-clients img {
+    width: 100%;
+    height: auto;
+}
+
+.section-footer{ background-color:#13457a; }
+.about-footer ul li{ list-style:none;  display: contents; }
+.about-footer ul li img{ width:13%; }
+.container-our-courses{ padding-left: 55px; }
+.container-our-courses h3{ font-size:24px; line-height: 72px; }
+.container-our-courses ul li{ list-style:none; }
+.recent-post-img img{ width:82% ; }
+.recent-post-img{ float: left; width: 40%; }
+.recent-post{ border-bottom:1px solid #1d5782 ;  }
+.phone-icon img{ width:15%; }
+.phone-icon span { font-size:16px; padding-left: 4px;  }
+.copyright-container{ font-size: 14px; border-top:1px solid #155187; }
+
+.container-newsletter{ background-color: #0480e1;
+  width:100%;
+  padding-left: 15px;
+  top: -50px;
+  position: relative; }
+.btn-submit{ text-align: center; }
+.section-clients{ margin-bottom: 90px; }
+.container-newsletter img { width:18%; padding-top: 12px; }
+.container-newsletter span{ font-size: 26px;
+padding-left: 16px;
+display: block;
+float: right;
+width: 80%; }
+.btn-submit { background-color:#ffffff; padding: 20px 63px; }
+.input-email-submit{ width:284px; height:65px ; background-color: #0e8be2; border: none; outline: none; }

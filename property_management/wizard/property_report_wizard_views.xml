@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="property_report_wizard_view_form" model="ir.ui.view">
+        <field name="name">property.report.wizard.view.form</field>
+        <field name="model">property.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                        <field name="property_id"/>
+                        <field name="owner_id"/>
+                    </group>
+                    <group>
+                        <field name="type"/>
+                        <field name="state"/>
+                        <field name="tenant_id"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_print_rental_report" type="object" string="Print PDF"/>
+                    <button name="action_print_excel_rental_report" type="object" string="Print Excel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="property_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Property Management Report</field>
+        <field name="res_model">property.report.wizard</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="property_report_wizard_view_form"/>
+    </record>
+</odoo>

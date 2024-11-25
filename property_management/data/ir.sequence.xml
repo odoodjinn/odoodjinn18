@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sequence_id" model="ir.sequence">
+        <field name="name">Rental Sequence</field>
+        <field name="code">rental_sequence_code</field>
+        <field name="prefix">RL</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+    </record>
+</odoo>

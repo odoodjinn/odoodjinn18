@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+        <record id="property1" model="property.details">
+            <field name="name">Demo property</field>
+            <field name="street">demo street</field>
+            <field name="rent">101</field>
+            <field name="legal_amount">999</field>
+        </record>
+        <record id="property2" model="property.details">
+            <field name="name">Car</field>
+            <field name="street">car street</field>
+            <field name="rent">500</field>
+            <field name="legal_amount">5000</field>
+        </record>
+    <record id="property3" model="property.details">
+            <field name="name">Bike</field>
+            <field name="street">bike street</field>
+            <field name="rent">200</field>
+            <field name="legal_amount">2000</field>
+        </record>
+</odoo>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_property_report_wizard">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2>Rental/Lease Report</h2>
+                    <t t-set="unique_owner" t-value="set([record['owner']for record in records])"/>
+                    <t t-if="len(unique_owner)==1">
+                        <p><b>Owner:</b>
+                            <t t-esc="unique_owner.pop()"/>
+                        </p>
+                    </t>
+                    <br>
+                    </br>
+                    <div>
+                        <table cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Tenant</th>
+                                    <t t-if="len(unique_owner)>1">
+                                        <th>Owner</th>
+                                    </t>
+                                    <th>Type</th>
+                                    <th>Rent/Lease Amount</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>State</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <t t-foreach="records" t-as="record">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="record['name']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="record['tenant']"/>
+                                        </td>
+                                        <t t-if="len(unique_owner)>1">
+                                            <td>
+                                                <t t-esc="record['owner']"/>
+                                            </td>
+                                        </t>
+                                        <td>
+                                             <t t-esc="type_dict.get(record['type'], '')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="record['rent_lease_amount']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="record['start_date']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="record['end_date']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="state_dict.get(record['state'], '')"/>
+                                        </td>
+                                    </tr>
+                                    </t>
+                                </tbody>
+                            <style type="text/css">table, th, td { border: 1px solid black;
+                                text-align:center; padding: 15px;}</style>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

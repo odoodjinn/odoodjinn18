@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="property_web_form_template" name="Property Web Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div style="text-align:center; font-size: 30px; padding: 15px;">
+                    <b>PROPERTY CREATION FORM</b>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <form action="/property_details/submit">
+                            <div class="form-group">
+                                <label for="name">Property:</label>
+                                <input type="text" class="form-control" name="name" id="name" required="true"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="street">Street:</label>
+                                <input type="text" class="form-control" name="street" id="street"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="street2">Street 2:</label>
+                                <input type="text" class="form-control" name="street2" id="street2"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City:</label>
+                                <input type="text" class="form-control" name="city" id="city"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP:</label>
+                                <input type="text" class="form-control" name="zip" id="zip"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="state_id">State:</label>
+                                <select class="form-control" name="state_id" id="state_id">
+                                    <option value=""/>
+                                    <t t-foreach="state_rec" t-as="state">
+                                        <option t-esc="state.name" t-att-value="state.id"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="country_id">Country:</label>
+                                <select class="form-control" name="country_id" id="country_id">
+                                    <option value=""/>
+                                    <t t-foreach="country_rec" t-as="country">
+                                        <option t-esc="country.name" t-att-value="country.id"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="owner_id">Owner:</label>
+                                <select class="form-control" name="owner_id" id="owner_id">
+                                    <option value=""/>
+                                    <t t-foreach="owner_rec" t-as="owner">
+                                        <option t-esc="owner.name" t-att-value="owner.id"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-top: 15px; margin-bottom: 15px;">
+                                <label for="can_be_sold">Can Be Sold:</label>
+                                <input type="checkbox" name="can_be_sold" id="can_be_sold"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="rent">Rent Amount:</label>
+                                <input type="number" class="form-control" name="rent" id="rent"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="built_date">Built Date:</label>
+                                <input type="date" class="form-control" name="built_date" id="built_date"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="legal_amount">Lease Amount:</label>
+                                <input type="number" class="form-control" name="legal_amount" id="legal_amount"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description:</label>
+                                <textarea class="form-control" name="description" id="description"/>
+                            </div>
+                            <div>
+                                <button type="object" name="property_form_submit" class="btn btn-primary"
+                                        style="margin-top: 10px; margin-bottom: 10px;">Create
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="property_web_form_success" name="Property Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            Property created successfully.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="rental_lease_web_form_template" name="Rental/Lease Web Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div style="text-align:center; font-size: 30px; padding: 15px;">
+                    <b>RENTAL/LEASE ORDER</b>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <form method="post" action="/management/submit">
+                            <div id="rental_lease_web_form_template">
+                                <input type="hidden" name="csrf_token"
+                                       t-att-value="request.csrf_token()"/>
+                                <div class="primary_form">
+                                    <div class="form-group">
+                                        <label for="tenant_id">Tenant:</label>
+                                        <select class="form-control" name="tenant_id" id="tenant_id" required="1">
+                                            <option value=""/>
+                                            <t t-foreach="partner_rec" t-as="tenant">
+                                                <option t-esc="tenant.name" t-att-value="tenant.id"/>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="due_date">Due Date:</label>
+                                        <input type="date" class="form-control" name="due_date" id="due_date"
+                                               required="1"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company_id">Company:</label>
+                                        <select class="form-control" name="company_id" id="company_id">
+                                            <option value=""/>
+                                            <t t-foreach="company_rec" t-as="company">
+                                                <option t-esc="company.name" t-att-value="company.id"/>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type">Type:</label>
+                                        <select class="form-control" name="type" id="type">
+                                            <option value="rent">Rent</option>
+                                            <option value="lease">Lease</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <table class="order_line_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Property</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="lines">
+                                        <tr class="order_line">
+                                            <td>
+                                                <select class="form-control" name="property_id" id="property_id">
+                                                    <option value=""/>
+                                                    <t t-foreach="property_rec" t-as="property">
+                                                        <option t-esc="property.name" t-att-value="property.id"/>
+                                                    </t>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="date" class="form-control" name="start_date"
+                                                       id="start_date"/>
+                                            </td>
+                                            <td>
+                                                <input type="date" class="form-control" name="end_date" id="end_date"/>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="remove_line" id="remove_line">
+                                                    <i class="fa fa-trash"/>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="add_extra_order_line d-none">
+                                            <td>
+                                                <select class="form-control" name="property_id" id="property_id"
+                                                >
+                                                    <option value=""/>
+                                                    <t t-foreach="property_rec" t-as="property">
+                                                        <option t-esc="property.name" t-att-value="property.id"/>
+                                                    </t>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="date" class="form-control" name="start_date"
+                                                       id="start_date"/>
+                                            </td>
+                                            <td>
+                                                <input type="date" class="form-control" name="end_date"
+                                                       id="end_date"/>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="remove_line" id="remove_line">
+                                                    <i class="fa fa-trash"/>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <style type="text/css">table, th, td {text-align:center; padding: 15px;}</style>
+                                </table>
+                                <div style="font-size: 10px;">
+                                    <button type="button" class="add_line" id="add_line">
+                                        <i class="fa fa-plus form-control"/>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button type="button" class="custom_create btn btn-primary"
+                                            style="margin-top: 10px; margin-bottom: 10px;">Create Orders
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="rental_lease_web_invoice_template" name="Invoices">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h1 style="text-align: center; padding: 10px;">Invoices</h1>
+                    </div>
+                    <div>
+                        <table style="margin: 10px auto;">
+                            <thead>
+                                <tr>
+                                    <th>Invoice</th>
+                                    <th>Customer</th>
+                                    <th>Invoice Date</th>
+                                    <th>Invoice Amount</th>
+                                    <th>State</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="invoice_rec" t-as="invoice">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="invoice['name']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="invoice['partner_id'].name"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="invoice['invoice_date']"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="invoice['amount_total']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="state_dict.get(invoice['state'], '')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <style type="text/css">table, th, td {text-align:left; padding: 20px; border: 1px solid;}
+                            </style>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="property_land_template" name="Land Template">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h4 style="text-align: center; padding: 10px;"><t t-esc="property_vals.name"/></h4>
+                    </div>
+                    <div>
+                        <table style="margin: 10px auto;">
+                            <thead>
+                                <tr>
+                                    <th>Owner</th>
+                                    <th>Rent Amount</th>
+                                    <th>Lease Amount</th>
+                                    <th>Built Date</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="property_vals" t-as="property">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="property['owner_id'].name"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="property['rent']"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="property['legal_amount']"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="property['built_date']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="property['street']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <style type="text/css">table, th, td {text-align:left; padding: 20px;
+                                border: 1px solid;}
+                            </style>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

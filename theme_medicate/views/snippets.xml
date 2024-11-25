@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit the website.snippets template to add a new snippet for home page slide -->
+    <template id="theme_medicate_snippets" inherit_id="website.snippets" priority="8">
+        <xpath expr="//snippets[@id='snippet_groups']" position="inside">
+            <t t-snippet="theme_medicate.home_page_carousel"/>
+            <t t-snippet="theme_medicate.home_page_about"/>
+            <t t-snippet="theme_medicate.home_page_facility_provided"/>
+            <t t-snippet="theme_medicate.home_page_about_content"/>
+            <t t-snippet="theme_medicate.home_page_great_work"/>
+            <t t-snippet="theme_medicate.home_page_working_progress"/>
+            <t t-snippet="theme_medicate.home_page_clients"/>
+        </xpath>
+    </template>
+</odoo>
